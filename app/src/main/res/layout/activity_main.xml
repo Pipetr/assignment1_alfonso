@@ -41,28 +41,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/lbMovieTitle"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/tvMovieTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSearch"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/tvMovieTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tvMovieTitle"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSearch"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.12" />
 
     <TextView
         android:id="@+id/lbDirector"
         android:layout_width="wrap_content"
-        android:layout_height="19dp"
+        android:layout_height="wrap_content"
         android:text="@string/lbDirector"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/tvDirector"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,17 +76,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tvDirector"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvMovieTitle"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.12" />
 
     <TextView
         android:id="@+id/lbMovieRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/lbRating"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/tvRating"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,17 +99,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tvRating"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDirector"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.12" />
 
     <TextView
         android:id="@+id/lbYear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/lbRelease"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/tvYear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -115,11 +122,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tvYear"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvRating"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.12" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
