@@ -1,9 +1,11 @@
 package ca.georgiancollege.assignment1_alfonso;
 
 import android.media.Image;
+import android.net.Uri;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -11,6 +13,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -18,11 +22,11 @@ import okhttp3.Response;
 
 public class MovieViewModel extends ViewModel {
 
+    private final MutableLiveData<List<MovieModel>> movieListLiveData = new MutableLiveData<>();
     MovieModel movieModel = new MovieModel();
-    private final MutableLiveData<MovieModel> movieData = new MutableLiveData<MovieModel>();
 
-    public MutableLiveData<MovieModel> getMovieData() {
-        return movieData;
+    public LiveData<List<MovieModel>> getMovieData() {
+        return movieListLiveData;
     }
 
     public MovieViewModel() {
@@ -46,25 +50,24 @@ public class MovieViewModel extends ViewModel {
                 assert response.body() != null;
                 String responseData = response.body().string();
                 Log.d("TAG", "Response: " + responseData);
-
+                List<MovieModel> movieList = new ArrayList<>();
                 JSONObject json = null;
                 try{
                     json = new JSONObject(responseData);
-                    String title = json.getString("Title");
-                    String year = json.getString("Year");
-                    String id = json.getString("imdbID");
-                    String poster = json.getString("imdbID");
+                    for (int i = 0; i < json.getJSONArray("Search").length(); i++) {
+                        JSONObject movieJson = json.getJSONArray("Search").getJSONObject(i);
+                        String title = movieJson.getString("Title");
+                        String year = movieJson.getString("Year");
+                        String id = movieJson.getString("imdbID");
+                        Uri poster = movieJson.getString("Poster").equals("N/A") ? null : Uri.parse(movieJson.getString("Poster"));
 
-                    movieModel.setTitle(title);
-                    movieModel.setYear(year);
-                    movieModel.setImdbID(id);
-                    movieModel.setPoster(poster);
-
-                    movieData.postValue(movieModel);
-
+                        movieList.add(new MovieModel(title, year, poster, id));
+                    }
                 }catch (JSONException e) {
                     e.printStackTrace();
                 }
+
+                movieListLiveData.postValue(movieList);
             }
         });
     }

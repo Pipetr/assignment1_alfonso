@@ -16,9 +16,12 @@
             android:id="@+id/moviePoster"
             android:layout_width="@dimen/with_poster"
             android:layout_height="@dimen/height_poster"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
             android:contentDescription="@string/movie_poster"
             app:srcCompat="@drawable/ic_launcher_background" />
     </LinearLayout>

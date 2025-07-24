@@ -5,8 +5,11 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import java.util.List;
 import java.util.Objects;
 
 import ca.georgiancollege.assignment1_alfonso.databinding.ActivityMainBinding;
@@ -14,6 +17,7 @@ import ca.georgiancollege.assignment1_alfonso.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
+    MovieAdapter myAdapter;
     MovieViewModel viewModel;
 
     @Override
@@ -22,17 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
+        // Initialize the ViewModel
         viewModel = new ViewModelProvider(this).get(MovieViewModel.class);
-
-        viewModel.getMovieData().observe(this, movieData -> {
-            Log.d("TAG", "Update view");
-            binding.txtViewTitle.set
-            binding.tvDirector.setText(movieData.getDirector());
-            binding.tvRating.setText(movieData.getRated());
-            binding.tvYear.setText(movieData.getYear());
-        });
 
         binding.btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,8 +42,22 @@ public class MainActivity extends AppCompatActivity {
                     // Show an error message or handle empty input
                     binding.txtInSearch.setError("Please enter a movie title");
                 }
+
             }
         });
 
+        viewModel.getMovieData().observe(this, new Observer<List<MovieModel>>() {
+            @Override
+            public void onChanged(List<MovieModel> movieModels) {
+                if(myAdapter == null){
+                    myAdapter = new MovieAdapter(movieModels);
+                    binding.recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                    binding.recyclerView.setAdapter(myAdapter);
+                }else {
+                    // Update the adapter with the new movie list
+                    myAdapter.updateData(movieModels);
+                }
+            }
+        });
     }
 }

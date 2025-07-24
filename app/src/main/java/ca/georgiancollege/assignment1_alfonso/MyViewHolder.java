@@ -7,21 +7,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import ca.georgiancollege.assignment1_alfonso.databinding.ActivityMainBinding;
+
 public class MyViewHolder extends RecyclerView.ViewHolder {
 
-    public ImageView movieImageView;
-    public TextView movieTitleTextView;
-    public TextView movieDirectorTextView;
-    public TextView movieRatedTextView;
-    public TextView movieReleasedTextView;
+    public ImageView image;
+    public TextView title;
+    public TextView released;
+    public TextView id;
 
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
-        movieImageView = itemView.findViewById(R.id.movieImageView);
-        movieTitleTextView = itemView.findViewById(R.id.movieTitleTextView);
-        movieDirectorTextView = itemView.findViewById(R.id.movieDirectorTextView);
-        movieRatedTextView = itemView.findViewById(R.id.movieRatedTextView);
-        movieReleasedTextView = itemView.findViewById(R.id.movieReleasedTextView);
-
+        image = itemView.findViewById(R.id.moviePoster);
+        title = itemView.findViewById(R.id.txtViewTitle);
+        released = itemView.findViewById(R.id.tvRelease);
+        id = itemView.findViewById(R.id.tvMovieId);
     }
 }

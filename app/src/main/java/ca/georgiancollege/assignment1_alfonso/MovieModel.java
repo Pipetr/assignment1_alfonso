@@ -1,13 +1,13 @@
 package ca.georgiancollege.assignment1_alfonso;
 
-import android.media.Image;
+import android.net.Uri;
 
 public class MovieModel {
     private String Title;
 
     private String Year;
 
-    private Image Poster;
+    private Uri Poster;
 
     private String imdbID;
 
@@ -15,7 +15,7 @@ public class MovieModel {
     public MovieModel() {
     }
 
-    public MovieModel(String title, String year, Image poster, String imdbID) {
+    public MovieModel(String title, String year, Uri poster, String imdbID) {
         Title = title;
         Year = year;
         Poster = poster;
@@ -38,11 +38,11 @@ public class MovieModel {
         Year = year;
     }
 
-    public Image getPoster() {
+    public Uri getPoster() {
         return Poster;
     }
 
-    public void setPoster(String poster) {
+    public void setPoster(Uri poster) {
         Poster = poster;
     }
 
