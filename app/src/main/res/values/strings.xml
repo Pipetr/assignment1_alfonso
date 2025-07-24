@@ -10,4 +10,7 @@
     <string name="tvRating">Rating</string>
     <string name="lbRelease">Release Year:</string>
     <string name="tvYear">Year</string>
+    <string name="movie_poster">Movie Poster</string>
+    <string name="txtViewID">Movie id</string>
+    <string name="movieID">movie id</string>
 </resources>

@@ -1,21 +1,26 @@
 package ca.georgiancollege.assignment1_alfonso;
 
+import android.media.Image;
+
 public class MovieModel {
-    // attributes
-//    Title
-//    Director
-//    Rated
-//    Released
     private String Title;
-    private String Director;
-    private String Rated;
-    private String Released;
+
+    private String Year;
+
+    private Image Poster;
+
+    private String imdbID;
 
     // constructor
     public MovieModel() {
     }
 
-    // getters and setters
+    public MovieModel(String title, String year, Image poster, String imdbID) {
+        Title = title;
+        Year = year;
+        Poster = poster;
+        this.imdbID = imdbID;
+    }
 
     public String getTitle() {
         return Title;
@@ -25,27 +30,27 @@ public class MovieModel {
         Title = title;
     }
 
-    public String getDirector() {
-        return Director;
+    public String getYear() {
+        return Year;
     }
 
-    public void setDirector(String director) {
-        Director = director;
+    public void setYear(String year) {
+        Year = year;
     }
 
-    public String getRated() {
-        return Rated;
+    public Image getPoster() {
+        return Poster;
     }
 
-    public void setRated(String rated) {
-        Rated = rated;
+    public void setPoster(String poster) {
+        Poster = poster;
     }
 
-    public String getReleased() {
-        return Released;
+    public String getImdbID() {
+        return imdbID;
     }
 
-    public void setReleased(String released) {
-        Released = released;
+    public void setImdbID(String imdbID) {
+        this.imdbID = imdbID;
     }
 }
