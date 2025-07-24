@@ -13,4 +13,7 @@
     <string name="movie_poster">Movie Poster</string>
     <string name="txtViewID">Movie id</string>
     <string name="movieID">movie id</string>
+    <string name="back">\uf060</string>
+    <string name="lbDuration">Runtime: 120 min</string>
+    <string name="lbPlot">Movie plot goes here...</string>
 </resources>
