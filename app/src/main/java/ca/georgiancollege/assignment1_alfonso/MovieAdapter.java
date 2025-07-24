@@ -1,6 +1,7 @@
 package ca.georgiancollege.assignment1_alfonso;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MyViewHolder> {
         }
         holder.released.setText(movie.getYear());
         holder.id.setText(movie.getImdbID());
+        holder.itemView.setOnClickListener(v -> {
+            Context context = v.getContext();
+            Intent intent = new Intent(context, MovieDetailsActivity.class);
+            intent.putExtra("imdbID", movie.getImdbID());
+            context.startActivity(intent);
+        });
     }
 
     @Override
